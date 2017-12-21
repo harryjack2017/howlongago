@@ -9,40 +9,7 @@
 var lans = ["zh", "en"];
 
 /*
- *   lan:语言，包括zh和en，默认en，
- * */
-function howLongago(time, lan) {
-    if (lans.indexOf(lan) < 0) {
-        lan = "en";
-    }
-    var diff = new Date() - time;
-
-    function doCaculate(t) {
-        for (var i = 0; i < prop.length; i++) {
-            if (prop[i]['m']) {
-                if (t < prop[i]['m']) {
-                    return t + prop[i][lan];
-                }
-                else {
-                    t = Math.floor(t / prop[i]['m']);
-                    prop.splice(0, 1);
-                    return doCaculate(t);
-                }
-            }
-            else {
-                return t + prop[i][lan]
-            }
-        }
-    };
-    if (diff >= 0) {
-        return doCaculate(Math.floor((diff) / 1000));
-    }
-    else {
-        return "Time is yet to come";
-    }
-}
-
-/*
+        *     lan:语言，包括zh和en，默认en，
         *     通过毫秒数，计算时长字符串。
         *     return：1天23小时2分钟30秒
         * */
